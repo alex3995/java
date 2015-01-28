@@ -1,0 +1,71 @@
+//Programm von Alexander Zielinski 108014224529
+import inout.Console;
+public class AAE
+  {public static void main()
+     {double o=1;
+      do{
+         long res=1;
+         long x1=0;
+         long y1=0;
+         int p=1000;
+         long sum=0;
+         System.out.println("Bitte ersten wert eingeben:");
+         long x = Console.readLong();
+         System.out.println("Bitte zwiten wert eingeben:");
+         long y = Console.readLong();
+         if(y>x)//wechsel so dass x grösser is wenn x<y
+           {long temp=0;
+            temp=x;
+            x=y;
+            y=temp;
+           }
+         x1=x;
+         y1=y;
+         System.out.println("Eingabe ist x:"+x+" und y:"+y);
+         do//test op ggt=1
+           {res=x%y;
+            x=y;
+            y=res;
+           }
+         while(res!=0);
+         System.out.println("der ggt ist: "+x);
+         if(x==1)//array definition
+           {System.out.println("inverse Berechenbar");
+            int c=2;
+            long u[]= new long[p];
+            u[0]=x1;u[1]=y1;
+            long q[]= new long[p];
+            q[0]=0;q[1]=0;
+            long s[]= new long[p];
+            s[0]=1;s[1]=0;
+            long t[]= new long[p];
+            t[0]=0;t[1]=1;
+            System.out.println("q    x    s    t");
+            System.out.println("________________");
+            System.out.println(q[0]+"  "+u[0]+"  "+s[0]+"  "+t[0]);
+            System.out.println(q[1]+"  "+u[1]+"  "+s[1]+"  "+t[1]);
+            while(u[c-1]!=0)//rechnung
+              {u[c]=u[c-2]%u[c-1];
+               q[c]=(u[c-2]-u[c])/u[c-1];
+               s[c]=s[c-2]-(s[c-1]*q[c]);
+               t[c]=t[c-2]-(t[c-1]*q[c]);
+               if(u[c]!=0)
+                 {System.out.println(q[c]+"  "+u[c]+"  "+s[c]+"  "+t[c]);
+                 }
+               if(u[c]==1)
+                 {sum=((u[0]*s[c])+(u[1]*t[c]));
+                  System.out.println("");
+                  System.out.println("die Inverse von "+u[0]+" ist "+s[c]);
+                  System.out.println("die Inverse von "+u[1]+" ist "+t[c]);
+                  System.out.println("Also:");
+                  System.out.println(u[0]+"*"+s[c]+"+"+u[1]+"*"+t[c]+"="+sum);
+                 }
+               c++;   
+              }
+           }
+          System.out.println("um das programm zu bendenn drücken sie die '0' mit allen anderen zahlen setzen sie fort");
+          o=Console.readDoubleComma();
+         }
+         while(o!=0);
+     }
+  }
