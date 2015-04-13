@@ -1,0 +1,36 @@
+import java.*;
+import inout.*;
+public class Gruppen
+  {public static void main(String args[])
+      {double killswitch=1;
+       double a;
+       double p;
+       do
+         {System.out.println("Bitte primzahl p eingeben: ");
+          p=(double)Console.readInt();
+          double pe=p-2;
+          System.out.println("Bitte Element a eingeben: ");
+          a=(double)Console.readInt();
+          double ele=a;
+          for(double k=1;;k++)
+             {a=(a*ele)%p;
+              if(k>p)
+                {System.out.println("a ist ein teiler von p");
+                 break;
+                }
+              if(k==pe && a==1)
+                {k=k+1;
+                 System.out.println("a ist ein element der "+(int)k+"-ten ordnung und somit Primitiv");
+                 break;
+                }
+              if(a==1)
+                {k=k+1;
+                 System.out.println("a ist das element der "+(int)k+"-ten ordnung");
+                 break;
+                }
+             }
+          System.out.println("zum beenden 0 drucken zum fohrtfahren jede andere zahl");
+          killswitch=Console.readInt();
+        }while(killswitch!=0);
+      }
+  }
